@@ -1,0 +1,20 @@
+{
+  "name": "proofread-skill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Portable agent skill for conservative proofreading and copy-editing",
+  "author": "Rafael Arciniegas",
+  "license": "MIT",
+  "scripts": {
+    "doctor": "node skills/proofread/scripts/proofread.mjs doctor",
+    "install:agents": "node scripts/install-agent-skill.mjs install",
+    "check:agents": "node scripts/install-agent-skill.mjs check",
+    "docs:check": "node --test test/documentation.test.mjs",
+    "test": "node --test test/*.test.mjs",
+    "validate:skill": "node scripts/validate-skill.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
