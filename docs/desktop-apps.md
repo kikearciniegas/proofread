@@ -63,6 +63,8 @@ Official packaging documentation:
 
 Artifact: `proofread-gemini-instructions.md`
 
+Hosted version: [Open Proofread as a shared Gemini Gem](https://gemini.google.com/gem/1xQ_c5-mPSw4NMm5TiTQbH-rdZ5uMNCJC?usp=sharing)
+
 1. In the Gemini web app, create a new Gem.
 2. Name it `Proofread` and paste the artifact into the Gem instructions.
 3. Save it, then use the Gem on Gemini Apps surfaces where the account exposes
@@ -78,6 +80,8 @@ Official Gem instructions:
 
 Creating a Gem copies the adapter instructions into the user's Gemini account;
 updating this repository does not automatically update an existing Gem.
+See [Gemini Gem publication](gemini-gem.md) for sharing, smoke tests, privacy,
+and the maintainer update procedure.
 
 ## Capability matrix
 

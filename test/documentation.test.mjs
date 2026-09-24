@@ -59,3 +59,10 @@ test("authorship and license metadata remain attached", () => {
   assert.match(readFileSync(path.join(root, "LICENSE"), "utf8"), /^MIT License/);
   assert.match(readFileSync(path.join(root, "skills", "proofread", "LICENSE"), "utf8"), /^MIT License/);
 });
+
+test("the shared Gemini Gem URL remains documented", () => {
+  const url = "https://gemini.google.com/gem/1xQ_c5-mPSw4NMm5TiTQbH-rdZ5uMNCJC?usp=sharing";
+  for (const relative of ["README.md", "docs/desktop-apps.md", "docs/gemini-gem.md"]) {
+    assert.ok(readFileSync(path.join(root, relative), "utf8").includes(url), `${relative} is missing the shared Gem URL`);
+  }
+});

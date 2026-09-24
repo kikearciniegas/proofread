@@ -9,6 +9,7 @@
 | [Optional interoperability](interoperability.md) | Companion skills, safe ordering, and translation review |
 | [Desktop apps](desktop-apps.md) | Claude Desktop, ChatGPT, Codex, and Gemini Apps packages |
 | [Claude plugin](claude-plugin.md) | Claude Code/Cowork marketplace, upload, validation, and submission |
+| [Gemini Gem](gemini-gem.md) | Hosted Gem, creation, sharing, testing, and update procedure |
 | [Distribution formats](distribution-format.md) | Package contents, builds, checksums, and validation coverage |
 | [ChatGPT submission](chatgpt-plugin-submission.md) | Public plugin listing materials and test cases |
 | [Security and privacy](security-and-privacy.md) | Local processing, file safety, and data boundaries |

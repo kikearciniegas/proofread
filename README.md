@@ -138,6 +138,7 @@ node skills/proofread/scripts/proofread.mjs --help
 - [Agent compatibility](docs/compatibility.md)
 - [Optional interoperability](docs/interoperability.md)
 - [Desktop application support](docs/desktop-apps.md)
+- [Gemini Gem publication](docs/gemini-gem.md)
 - [Distribution formats and verification](docs/distribution-format.md)
 - [ChatGPT plugin submission](docs/chatgpt-plugin-submission.md)
 - [Security and privacy](docs/security-and-privacy.md)
