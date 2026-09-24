@@ -25,4 +25,6 @@ installer preflights every target and refuses to overwrite conflicts.
 
 The skill does not require Claude plugins or another prose-editing skill. Harper
 CLI is optional and invoked only when installed; the agent must disclose when it
-skips that baseline.
+skips that baseline. Optional companion skills are capability-detected at use
+time as described in [interoperability.md](interoperability.md); they are never
+installed or assumed by this package.

@@ -11,8 +11,9 @@ Official submission guide:
 
 - **Name:** Proofread
 - **Short description:** Proofread prose without changing its meaning.
-- **Long description:** Correct grammar, spelling, clarity, and style while
-  preserving facts, voice, quotations, code, citations, and exact values.
+- **Long description:** Correct grammar, spelling, clarity, style, and translated
+  prose while preserving facts, voice, quotations, code, citations, and exact
+  values.
 - **Developer:** Rafael Arciniegas
 - **Category:** Productivity
 - **Website and support:** <https://github.com/kikearciniegas/proofread>
@@ -23,7 +24,7 @@ Official submission guide:
 
 1. Proofread this text without changing its meaning or voice.
 2. Correct this file and show me the diff before applying it.
-3. Polish this draft while preserving every claim and citation.
+3. Review this translation against its source and preserve every claim.
 
 ## Positive evaluations
 
@@ -35,8 +36,9 @@ Official submission guide:
    changes only; code remains exact.
 4. “Use UK spelling and show a change summary.” Expected: apply the requested
    dialect and summarize material edits.
-5. “Correct this draft but do not change names, numbers, or citations.” Expected:
-   preserve protected facts and report any unresolved ambiguity.
+5. “Review translated.md against source.md.” Expected: separate source-accuracy
+   issues from target-language polish, preserve structure, and identify
+   fabrication, omissions, or terminology errors.
 
 ## Negative evaluations
 
@@ -50,9 +52,10 @@ Official submission guide:
 ## Release notes
 
 Initial public submission of a skills-only proofreading plugin. It provides
-conservative grammar and style editing, protected-content safeguards, optional
-local lint helpers where the execution surface supports them, and explicit
-approval boundaries for file changes.
+conservative grammar and style editing, source-aware translated-text review,
+protected-content safeguards, optional local lint and companion-skill support
+where the execution surface exposes them, and explicit approval boundaries for
+file changes.
 
 ## Manual publication requirements
 

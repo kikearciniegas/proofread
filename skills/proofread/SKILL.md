@@ -1,11 +1,11 @@
 ---
 name: proofread
-description: Proofread and conservatively copy-edit prose or files with optional Harper linting, protected-span checks, and approval-gated writes. Use for grammar, spelling, clarity, and polish.
+description: Proofread and conservatively copy-edit prose, files, or translations with optional Harper linting and protected-span checks. Use for grammar, clarity, polish, or translation review.
 license: MIT. See LICENSE for the full license text.
 metadata:
   author: Rafael Arciniegas
   copyright: Copyright (c) 2026 Rafael Arciniegas
-  version: "0.2.0"
+  version: "0.3.0"
   standard: agentskills.io
   requirements: Node.js 20+ and Git; Harper CLI 2.x is optional for English linting
 ---
@@ -22,8 +22,9 @@ the agent's current working directory.
 
 ## Workflow
 
-1. Confirm the requested depth: grammar-only/light, standard proofreading, or
-   direct application. When editing a file, work on a temporary copy.
+1. Confirm the requested depth: grammar-only/light, standard proofreading,
+   translation review, or direct application. When editing a file, work on a
+   temporary copy.
 2. For English, run `node scripts/proofread.mjs lint COPY --dialect DIALECT` when
    Harper is available. For other languages or a missing Harper installation,
    disclose the skipped baseline and continue with human review.
@@ -42,7 +43,10 @@ Read [references/workflow.md](references/workflow.md) for pass criteria and
 acceptance checks. Read [references/protected-content.md](references/protected-content.md)
 when prose is mixed with code, commands, citations, quotations, or structured
 content. Read [references/compatibility.md](references/compatibility.md) only for
-installation or agent-discovery troubleshooting.
+installation or agent-discovery troubleshooting. Read
+[references/interoperability.md](references/interoperability.md) only when the
+user requests translated-text review, humanization, AI-pattern cleanup, or an
+optional companion skill.
 
 ## Commands
 

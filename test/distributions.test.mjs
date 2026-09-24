@@ -38,6 +38,7 @@ test("desktop distributions contain the expected portable layouts", () => {
 
     const claudeEntries = archiveEntries(path.join(out, "proofread-claude-desktop.zip"));
     assert.ok(claudeEntries.includes("proofread/SKILL.md"));
+    assert.ok(claudeEntries.includes("proofread/references/interoperability.md"));
     assert.ok(claudeEntries.every((entry) => entry.startsWith("proofread/")));
 
     const pluginEntries = archiveEntries(path.join(out, "proofread-chatgpt-plugin.zip"));
@@ -45,12 +46,15 @@ test("desktop distributions contain the expected portable layouts", () => {
       "plugin.json",
       ".codex-plugin/plugin.json",
       "skills/proofread/SKILL.md",
+      "skills/proofread/references/interoperability.md",
       "assets/proofread-logo.svg",
     ]) assert.ok(pluginEntries.includes(expected), `plugin archive is missing ${expected}`);
 
     const gemini = readFileSync(path.join(out, "proofread-gemini-instructions.md"), "utf8");
     assert.match(gemini, /cannot run this project's local Harper/i);
     assert.match(gemini, /Never claim those automated checks ran/i);
+    assert.match(gemini, /## Translated text/);
+    assert.match(gemini, /accuracy and\s+completeness were not verified/i);
   } finally {
     rmSync(out, { recursive: true, force: true });
   }

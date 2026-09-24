@@ -37,6 +37,12 @@ The release manifest contains only artifact metadata and hashes. It never
 contains proofread text. The public GitHub release contains the skill code,
 instructions, assets, and legal notices—not user documents.
 
+Optional companion skills keep their own security and privacy boundaries and
+are not installed by Proofread. A professional translation review may use web
+research to verify terminology only when the user requests that verification
+and the host permits network access. Do not put confidential source text or
+translations into search queries; search only the minimum term needed.
+
 ## Authorship and detector claims
 
 The skill improves writing quality. It must not claim to certify human

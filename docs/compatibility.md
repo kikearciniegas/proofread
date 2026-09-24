@@ -28,3 +28,8 @@ Consumer desktop applications use the separately built distributions described
 in [Desktop application support](desktop-apps.md). The filesystem installer
 targets coding-agent discovery paths; it does not install cloud-hosted Claude
 skills, publish ChatGPT plugins, or create Gemini Gems.
+
+Companion prose and translation skills are optional and capability-detected;
+the installer does not install them. See
+[Optional interoperability](interoperability.md) for supported names, conflict
+rules, and hosted-application fallbacks.

@@ -38,11 +38,18 @@ Give the agent pasted text or a file and state the desired depth when it matters
 Proofread this for grammar only.
 Copy-edit docs/guide.md and show the diff before changing it.
 Polish this in UK English but preserve the informal voice.
+Review translated.md against source.md for omissions and terminology errors.
 ```
 
 For existing files, the default is a proposed diff. The source changes only
 after approval. Saying “apply the changes directly” authorizes that write but
 does not relax the meaning-preservation rules.
+
+For translated-text review, provide both the source and translation when you
+need accuracy or completeness checked. Without the source, Proofread can review
+only fluency, grammar, consistency, and register. Optional companion skills are
+used only when already available and explicitly relevant; see
+[Optional interoperability](interoperability.md).
 
 ## Verify discovery
 

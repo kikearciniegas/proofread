@@ -10,8 +10,13 @@
   authorization allows writing the reviewed draft over the source without a
   separate approval round.
 
-Never translate unless separately requested. Proofreading does not authorize
+Never create a translation unless separately requested. Reviewing an existing
+translation is allowed when requested, but proofreading does not authorize
 fact-checking, source replacement, citation invention, or substantive rewriting.
+
+For source-versus-translation review or optional prose-cleanup companions, read
+[interoperability.md](interoperability.md). Translation accuracy requires the
+source; without it, limit the review to target-language fluency and say so.
 
 ## Prepare safely
 

@@ -1,7 +1,7 @@
 {
   "name": "proofread",
-  "version": "0.2.0",
-  "description": "Conservative proofreading that preserves meaning, voice, and protected content.",
+  "version": "0.3.0",
+  "description": "Conservative proofreading and translation review that preserve meaning, voice, and protected content.",
   "author": {
     "name": "Rafael Arciniegas",
     "email": "kikearciniegas@users.noreply.github.com",
@@ -10,12 +10,12 @@
   "homepage": "https://github.com/kikearciniegas/proofread",
   "repository": "https://github.com/kikearciniegas/proofread",
   "license": "MIT",
-  "keywords": ["proofreading", "copy-editing", "grammar", "writing"],
+  "keywords": ["proofreading", "copy-editing", "grammar", "translation-review", "writing"],
   "skills": "./skills/",
   "interface": {
     "displayName": "Proofread",
     "shortDescription": "Proofread prose without changing its meaning",
-    "longDescription": "Correct grammar, spelling, clarity, and style while preserving the writer's facts, voice, quotations, code, citations, and exact values.",
+    "longDescription": "Correct grammar, spelling, clarity, style, and translated prose while preserving the writer's facts, voice, quotations, code, citations, and exact values.",
     "developerName": "Rafael Arciniegas",
     "category": "Productivity",
     "capabilities": ["Write"],

@@ -14,3 +14,9 @@ service or telemetry. They execute inside or provide instructions to the host
 application. That host may transmit and retain user text under its own terms and
 settings. Release archives and `manifest.json` contain project files and
 checksums only; they do not contain user documents.
+
+Optional companion skills are separately installed software with their own data
+handling. Proofread does not activate terminology web research unless the user
+requests professional translation verification and the host permits it. Search
+queries should contain only the minimum term required, never confidential
+passages or whole documents.

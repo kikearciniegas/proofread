@@ -75,3 +75,9 @@ updating this repository does not automatically update an existing Gem.
 proof that a vendor has accepted a public marketplace listing. Account-level
 uploads, enablement, availability by plan or region, and marketplace review are
 controlled by each application provider.
+
+Uploaded desktop packages do not bundle third-party companion skills. Optional
+interoperability is available only when the host exposes the companion in the
+same session; otherwise Proofread uses its self-contained fallback. Gemini's Gem
+adapter includes translated-text review rules but cannot invoke the external
+`translation-quality` Claude Code workflow.

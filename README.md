@@ -14,6 +14,10 @@ does not require the Claude plugins used by its original private version.
 - Optional Harper CLI lint before and after editing;
 - Checks for changes to code, URLs, paths, numbers, citations, and quotations;
 - Audits suspicious invisible Unicode without removing it blindly;
+- Reviews translated text for fluency and, when the source is supplied,
+  accuracy, omissions, terminology, structure, and register;
+- Optionally composes with compatible style and translation-review skills when
+  the current agent already exposes them;
 - Approval-gated writes for existing files;
 - Shared installation for Codex, Claude Code, Gemini CLI, GitHub Copilot,
   Cursor, OpenCode, Windsurf, and Devin.
@@ -52,6 +56,18 @@ The installer preflights all targets and refuses to overwrite existing skills.
 Use `--copy` where symbolic links are unsuitable, or `--agents codex,claude` to
 install only a subset.
 
+## Optional companion skills
+
+Proofread remains fully functional by itself. When the user requests a
+specialized pass and the current agent exposes it, Proofread can compose with
+`stop-slop`, `humanizer`, `watermarks-remover:clean-user-facing-text`, or
+[`translation-quality`](https://github.com/senshinji/claude-translation-skill).
+It never installs or assumes those companions. Proofread's meaning, voice,
+protected-content, and approval rules always win.
+
+See [Optional interoperability](docs/interoperability.md) for activation rules,
+safe ordering, translation-review requirements, and platform limitations.
+
 ## Desktop apps
 
 Download the current packages from
@@ -85,6 +101,7 @@ Ask your agent to proofread pasted text or a file. Examples:
 Proofread this paragraph for grammar only.
 Polish README.md, preserve my tone, and show me the diff before applying it.
 Copy-edit docs/guide.md using UK spelling and apply the approved changes.
+Review translated.md against source.md and separate accuracy fixes from style edits.
 ```
 
 The bundled helper can also be inspected directly:
@@ -100,6 +117,7 @@ node skills/proofread/scripts/proofread.mjs --help
 - [Workflow and guarantees](docs/workflow.md)
 - [CLI reference](docs/cli-reference.md)
 - [Agent compatibility](docs/compatibility.md)
+- [Optional interoperability](docs/interoperability.md)
 - [Desktop application support](docs/desktop-apps.md)
 - [Distribution formats and verification](docs/distribution-format.md)
 - [ChatGPT plugin submission](docs/chatgpt-plugin-submission.md)

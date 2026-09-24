@@ -27,6 +27,12 @@ The workflow must preserve:
 
 Grammar-only mode stops before stylistic rewriting. Standard mode allows
 meaning-preserving improvements to clarity, concision, rhythm, and repetition.
+Translation-review mode compares the source and translated text before applying
+target-language corrections. Without the source, it is a fluency review only,
+not an accuracy or completeness check.
+
+Optional companions never replace the final guard and diff. See
+[Optional interoperability](interoperability.md) for their activation and order.
 
 ## Why Harper is optional
 

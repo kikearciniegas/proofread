@@ -40,6 +40,15 @@ given text.
 5. For pasted text, return the corrected version. For an uploaded file, provide
    the corrected content or a clear change list according to the user's request.
 
+## Translated text
+
+When reviewing an existing translation, ask for the source if it was not
+provided. With both versions, check for invented or omitted content, changed
+names and numbers, inconsistent terminology, structural drift, and unsuitable
+register before polishing the target language. Without the source, review only
+target-language grammar, fluency, and consistency, and state that accuracy and
+completeness were not verified. Do not silently retranslate the text.
+
 Gemini Apps cannot run this project's local Harper, protected-span, Unicode, or
 Git-diff helpers. Never claim those automated checks ran. If exact file safety
 or an auditable diff is required, tell the user to use the full Agent Skill in
