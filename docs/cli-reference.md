@@ -39,3 +39,19 @@ node scripts/install-agent-skill.mjs check [options]
 
 Supported agent names are `codex`, `claude`, `gemini`, `copilot`, `cursor`,
 `opencode`, `windsurf`, and `devin`.
+
+## Distribution builder
+
+```bash
+npm run package:desktop
+npm run package:desktop -- --out /absolute/output/path
+```
+
+The builder requires the system `zip` command and writes three application
+artifacts plus `manifest.json`. It deletes and recreates only the selected
+output directory before building, so do not point `--out` at a directory that
+contains unrelated files. The default output is the ignored repository-local
+`dist/` directory.
+
+The test suite additionally uses `unzip` to inspect archive layouts. Neither
+tool is a runtime dependency of the installed proofreading skill.

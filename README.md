@@ -54,7 +54,9 @@ install only a subset.
 
 ## Desktop apps
 
-Build all desktop distributions with:
+Download the current packages from
+[GitHub Releases](https://github.com/kikearciniegas/proofread/releases/latest),
+or build all desktop distributions locally with:
 
 ```bash
 npm run package:desktop
@@ -71,6 +73,9 @@ See [Desktop application support](docs/desktop-apps.md) for capabilities and
 installation steps. ChatGPT public availability requires OpenAI review and
 publication in the universal Plugins Directory; building the ZIP does not
 bypass that process.
+
+The release also includes `manifest.json` with a SHA-256 checksum for every
+artifact. Generated files under `dist/` are disposable and are not committed.
 
 ## Use
 
@@ -96,6 +101,7 @@ node skills/proofread/scripts/proofread.mjs --help
 - [CLI reference](docs/cli-reference.md)
 - [Agent compatibility](docs/compatibility.md)
 - [Desktop application support](docs/desktop-apps.md)
+- [Distribution formats and verification](docs/distribution-format.md)
 - [ChatGPT plugin submission](docs/chatgpt-plugin-submission.md)
 - [Security and privacy](docs/security-and-privacy.md)
 - [Development](docs/development.md)

@@ -12,7 +12,9 @@ npm run install:agents -- --scope project --dry-run
 ```
 
 Tests use only Node.js standard-library modules and temporary directories. They
-do not require Harper or network access.
+do not require Harper or network access. Distribution tests require the system
+`zip` and `unzip` utilities. Generated `dist/` contents are ignored and may be
+deleted after inspection.
 
 ## Design rules
 
@@ -30,6 +32,18 @@ do not require Harper or network access.
 
 ## Releases
 
-Update the package and skill metadata versions together. Run all checks from a
-clean checkout, review third-party notices, and verify copy-mode installation in
-a temporary home directory before tagging a release.
+1. Update the version in `package.json`, `skills/proofread/SKILL.md`,
+   `plugin.json`, and `.codex-plugin/plugin.json`.
+2. Run every check listed above from a clean checkout, review legal notices, and
+   verify copy-mode installation in a temporary home directory.
+3. Commit and push the versioned sources. Wait for CI and CodeQL on that exact
+   commit.
+4. Create and push an annotated `vX.Y.Z` tag pointing to the verified commit.
+5. The Release workflow rebuilds the artifacts and creates the GitHub release.
+   Download the published files and compare their SHA-256 values with the
+   published `manifest.json`.
+
+Do not commit `dist/`. Do not create the GitHub release manually before pushing
+the tag: the workflow owns release creation. Publishing the GitHub package does
+not submit or publish the plugin in ChatGPT; follow
+[ChatGPT plugin submission](chatgpt-plugin-submission.md) separately.

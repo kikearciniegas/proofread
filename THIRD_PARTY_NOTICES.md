@@ -6,6 +6,8 @@ development, it can interoperate with separately installed software:
 - Harper CLI, an optional English grammar and style linter;
 - Node.js, used to run the bundled helper and installer scripts;
 - Git, used to render word diffs and manage the repository;
+- Info-ZIP-compatible `zip` and `unzip` commands, used only to build and test
+  desktop distribution archives;
 - agent clients such as Codex, Claude Code, Gemini CLI, GitHub Copilot, Cursor,
   OpenCode, Windsurf, and Devin.
 

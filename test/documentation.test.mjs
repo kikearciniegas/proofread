@@ -20,7 +20,14 @@ function markdownFiles(dir) {
 }
 
 test("all local documentation links resolve", () => {
-  const files = [path.join(root, "README.md"), path.join(root, "NOTICE.md"), path.join(root, "THIRD_PARTY_NOTICES.md"), ...markdownFiles(path.join(root, "docs")), ...markdownFiles(path.join(root, "skills", "proofread"))];
+  const files = [
+    "README.md", "NOTICE.md", "PRIVACY.md", "SECURITY.md", "THIRD_PARTY_NOTICES.md",
+  ].map((file) => path.join(root, file));
+  files.push(
+    ...markdownFiles(path.join(root, "docs")),
+    ...markdownFiles(path.join(root, "adapters")),
+    ...markdownFiles(path.join(root, "skills", "proofread")),
+  );
   const failures = [];
   const links = /!?(?:\[[^\]]*\])\(([^)]+)\)/g;
   for (const file of files) {

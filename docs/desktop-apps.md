@@ -3,6 +3,11 @@
 Run `npm run package:desktop` to create all artifacts under `dist/`. The command
 also writes `manifest.json` with SHA-256 hashes.
 
+Prebuilt packages are available from the
+[latest GitHub release](https://github.com/kikearciniegas/proofread/releases/latest).
+See [Distribution formats and verification](distribution-format.md) for archive
+contents, local builds, and checksum verification.
+
 ## Claude Desktop
 
 Artifact: `proofread-claude-desktop.zip`
@@ -52,6 +57,9 @@ checks ran.
 Official Gem instructions:
 <https://support.google.com/gemini/answer/15146780>
 
+Creating a Gem copies the adapter instructions into the user's Gemini account;
+updating this repository does not automatically update an existing Gem.
+
 ## Capability matrix
 
 | Surface | Core proofreading | Bundled scripts | Local file diff | Distribution |
@@ -62,3 +70,8 @@ Official Gem instructions:
 | Claude Desktop | yes | hosted execution only | hosted-file workflow | skill ZIP |
 | ChatGPT | yes after plugin publication | surface-dependent | Work/plugin environment | plugin ZIP + review |
 | Gemini Apps/Desktop | yes | no | no | Gem instructions |
+
+“Yes” in the core-proofreading column describes the packaged instructions, not
+proof that a vendor has accepted a public marketplace listing. Account-level
+uploads, enablement, availability by plan or region, and marketplace review are
+controlled by each application provider.
