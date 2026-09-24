@@ -1,6 +1,6 @@
 {
   "name": "proofread-skill",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Portable agent skill for conservative proofreading and copy-editing",
@@ -8,11 +8,13 @@
   "license": "MIT",
   "scripts": {
     "doctor": "node skills/proofread/scripts/proofread.mjs doctor",
+    "package:desktop": "node scripts/build-distributions.mjs",
     "install:agents": "node scripts/install-agent-skill.mjs install",
     "check:agents": "node scripts/install-agent-skill.mjs check",
     "docs:check": "node --test test/documentation.test.mjs",
     "test": "node --test test/*.test.mjs",
-    "validate:skill": "node scripts/validate-skill.mjs"
+    "validate:skill": "node scripts/validate-skill.mjs",
+    "validate:plugin": "node scripts/validate-plugin.mjs"
   },
   "engines": {
     "node": ">=20"

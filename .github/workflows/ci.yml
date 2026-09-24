@@ -33,5 +33,9 @@ jobs:
         run: npm run docs:check
       - name: Validate skill package
         run: npm run validate:skill
+      - name: Validate Agent Plugin manifests
+        run: npm run validate:plugin
+      - name: Build desktop distributions
+        run: npm run package:desktop
       - name: Check portable installation plan
         run: npm run install:agents -- --scope project --dry-run

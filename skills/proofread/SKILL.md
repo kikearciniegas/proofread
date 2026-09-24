@@ -1,11 +1,11 @@
 ---
 name: proofread
-description: Proofread and conservatively copy-edit user-supplied prose, files, and drafts with an optional Harper CLI baseline, human grammar and style review, protected-span verification, and approval-gated file writes. Use for grammar, spelling, copy-editing, clarity, or polish requests; do not use for translation, fact-checking, or authorship-evasion claims.
+description: Proofread and conservatively copy-edit prose or files with optional Harper linting, protected-span checks, and approval-gated writes. Use for grammar, spelling, clarity, and polish.
 license: MIT. See LICENSE for the full license text.
 metadata:
   author: Rafael Arciniegas
   copyright: Copyright (c) 2026 Rafael Arciniegas
-  version: "0.1.0"
+  version: "0.2.0"
   standard: agentskills.io
   requirements: Node.js 20+ and Git; Harper CLI 2.x is optional for English linting
 ---

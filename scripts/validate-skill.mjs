@@ -17,6 +17,11 @@ const frontmatter = body.slice(4, closing);
 assert.match(frontmatter, /^name:\s*proofread\s*$/m, "invalid skill name");
 assert.match(frontmatter, /^description:\s*\S.{40,}$/m, "description must explain the skill and when to use it");
 assert.match(frontmatter, /^license:\s*MIT\b/m, "skill must declare the MIT license");
+const description = frontmatter.match(/^description:\s*(.+)$/m)?.[1]?.trim();
+assert.ok(description && description.length <= 200, "description must be at most 200 characters for Claude Desktop");
+const packageData = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
+const version = frontmatter.match(/^\s*version:\s*["']?([^"'\s]+)["']?\s*$/m)?.[1];
+assert.equal(version, packageData.version, "skill and package versions must match");
 for (const relative of ["LICENSE", "NOTICE.md", "THIRD_PARTY_NOTICES.md", "agents/openai.yaml", "scripts/proofread.mjs"]) {
   assert.ok(existsSync(path.join(skillRoot, relative)), `${relative} is missing`);
 }

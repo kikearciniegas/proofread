@@ -6,6 +6,8 @@
 npm test
 npm run docs:check
 npm run validate:skill
+npm run validate:plugin
+npm run package:desktop
 npm run install:agents -- --scope project --dry-run
 ```
 
@@ -22,6 +24,9 @@ do not require Harper or network access.
 - Treat Harper output as a baseline, not authority.
 - Do not add dependencies on a particular agent's plugin marketplace.
 - Update documentation and tests with every public behavior change.
+- Keep the package, skill, and plugin manifest versions synchronized.
+- Treat the Gemini adapter as a reduced-capability edition; never imply that it
+  ran local helper commands.
 
 ## Releases
 

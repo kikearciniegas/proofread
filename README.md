@@ -17,6 +17,8 @@ does not require the Claude plugins used by its original private version.
 - Approval-gated writes for existing files;
 - Shared installation for Codex, Claude Code, Gemini CLI, GitHub Copilot,
   Cursor, OpenCode, Windsurf, and Devin.
+- Desktop distributions for Claude Desktop, ChatGPT/Codex plugins, and Gemini
+  Gems.
 
 It does not fact-check, translate by default, invent missing details, or claim
 that edited prose proves human authorship or bypasses AI detectors.
@@ -50,6 +52,26 @@ The installer preflights all targets and refuses to overwrite existing skills.
 Use `--copy` where symbolic links are unsuitable, or `--agents codex,claude` to
 install only a subset.
 
+## Desktop apps
+
+Build all desktop distributions with:
+
+```bash
+npm run package:desktop
+```
+
+This creates:
+
+- `dist/proofread-claude-desktop.zip` for Claude's Customize → Skills upload;
+- `dist/proofread-chatgpt-plugin.zip` for ChatGPT/Codex plugin testing and
+  skills-only plugin submission;
+- `dist/proofread-gemini-instructions.md` for a Gemini Gem.
+
+See [Desktop application support](docs/desktop-apps.md) for capabilities and
+installation steps. ChatGPT public availability requires OpenAI review and
+publication in the universal Plugins Directory; building the ZIP does not
+bypass that process.
+
 ## Use
 
 Ask your agent to proofread pasted text or a file. Examples:
@@ -73,6 +95,8 @@ node skills/proofread/scripts/proofread.mjs --help
 - [Workflow and guarantees](docs/workflow.md)
 - [CLI reference](docs/cli-reference.md)
 - [Agent compatibility](docs/compatibility.md)
+- [Desktop application support](docs/desktop-apps.md)
+- [ChatGPT plugin submission](docs/chatgpt-plugin-submission.md)
 - [Security and privacy](docs/security-and-privacy.md)
 - [Development](docs/development.md)
 
