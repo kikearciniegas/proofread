@@ -43,6 +43,38 @@ npm run validate:claude:official
 The official command requires Claude Code on `PATH`. CI installs a pinned Claude
 Code version and runs both checks before any release.
 
+## Verification coverage
+
+Repository automation and the release process cover these checks:
+
+- Validates `.claude-plugin/plugin.json` and
+  `.claude-plugin/marketplace.json` with Claude Code's official validator.
+- Builds the plugin ZIP and verifies its required root layout and SHA-256 hash.
+- Runs the unit, documentation, and portability checks in CI and again in the
+  release workflow.
+- Requires the release commit's separate CodeQL analysis to pass before the
+  version tag is created.
+
+The public v0.4.0 release received additional manual verification. Its published
+checksums matched `manifest.json`; the unpacked artifact passed both official
+manifest validators; `/proofread:proofread` completed a live request through
+`claude --plugin-dir`; and the public GitHub marketplace installed successfully
+in an isolated Claude configuration. Claude reported version `0.4.0`, one
+enabled `proofread` skill, and no agents, hooks, MCP servers, or LSP servers.
+
+CI does not sign in to a publisher's Claude account or change Cowork account
+settings. Before directory submission, perform this account-level smoke test:
+
+1. Upload the release ZIP in Customize → Plugins, or install it from the public
+   marketplace.
+2. Start a new Cowork session so enabled plugins are synchronized.
+3. Confirm that Proofread appears in the installed plugin and skill lists.
+4. Invoke `/proofread:proofread` on a short sentence and on a disposable file.
+5. Confirm that the result preserves names, numbers, quotations, URLs, and code,
+   and that it discloses any skipped Harper or helper-script check.
+6. Remove the disposable test file and disable the test installation if it is
+   not the account's intended production copy.
+
 ## Runtime notes
 
 Core proofreading requires no external companion skill. Node.js 20+ and Git are

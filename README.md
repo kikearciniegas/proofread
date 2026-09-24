@@ -56,6 +56,21 @@ The installer preflights all targets and refuses to overwrite existing skills.
 Use `--copy` where symbolic links are unsuitable, or `--agents codex,claude` to
 install only a subset.
 
+### Native Claude plugin
+
+Claude Code users can install the native plugin from this repository:
+
+```text
+/plugin marketplace add kikearciniegas/proofread
+/plugin install proofread@proofread
+```
+
+Use `/proofread:proofread` to invoke its packaged skill. Cowork users can add
+`https://github.com/kikearciniegas/proofread` under Customize → Plugins or
+upload `proofread-claude-plugin.zip` from the latest release. See
+[Claude plugin distribution](docs/claude-plugin.md) for validation, runtime
+limitations, and submission instructions.
+
 ## Optional companion skills
 
 Proofread remains fully functional by itself. When the user requests a
