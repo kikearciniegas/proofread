@@ -1,6 +1,6 @@
 {
   "name": "proofread-skill",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "description": "Portable agent skill for conservative proofreading and copy-editing",
@@ -14,7 +14,9 @@
     "docs:check": "node --test test/documentation.test.mjs",
     "test": "node --test test/*.test.mjs",
     "validate:skill": "node scripts/validate-skill.mjs",
-    "validate:plugin": "node scripts/validate-plugin.mjs"
+    "validate:plugin": "node scripts/validate-plugin.mjs",
+    "validate:claude": "node scripts/validate-claude-plugin.mjs",
+    "validate:claude:official": "claude plugin validate ."
   },
   "engines": {
     "node": ">=20"

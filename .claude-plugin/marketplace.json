@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "proofread",
+  "owner": {
+    "name": "Rafael Arciniegas",
+    "url": "https://github.com/kikearciniegas"
+  },
+  "description": "Meaning-preserving proofreading tools for Claude Code and Cowork.",
+  "version": "0.4.0",
+  "plugins": [
+    {
+      "name": "proofread",
+      "source": "./",
+      "displayName": "Proofread",
+      "description": "Conservative proofreading and translation review that preserve meaning, voice, and protected content.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Rafael Arciniegas",
+        "url": "https://github.com/kikearciniegas"
+      },
+      "homepage": "https://github.com/kikearciniegas/proofread",
+      "repository": "https://github.com/kikearciniegas/proofread",
+      "license": "MIT",
+      "keywords": [
+        "proofreading",
+        "copy-editing",
+        "writing",
+        "translation-review"
+      ],
+      "category": "productivity",
+      "tags": [
+        "proofreading",
+        "writing",
+        "translation"
+      ],
+      "strict": true
+    }
+  ]
+}

@@ -10,7 +10,7 @@ contents, local builds, and checksum verification.
 
 ## Claude Desktop
 
-Artifact: `proofread-claude-desktop.zip`
+Skill artifact: `proofread-claude-desktop.zip`
 
 1. Enable code execution and file creation in Claude settings.
 2. Open Customize → Skills and choose Create skill → Upload a skill.
@@ -22,6 +22,25 @@ operator's locally installed Harper binary. Because Harper is optional, the
 skill must disclose when it skips that baseline and continue with human review.
 
 Official instructions: <https://support.claude.com/en/articles/12512180-use-skills-in-claude>
+
+## Claude Code and Cowork plugin
+
+Plugin artifact: `proofread-claude-plugin.zip`
+
+The native Anthropic plugin includes `.claude-plugin/plugin.json`, the public
+marketplace catalog, and the canonical skill. In Cowork, open Customize →
+Plugins and either add `https://github.com/kikearciniegas/proofread` as a
+marketplace or upload the plugin ZIP. In Claude Code, add the same repository as
+a marketplace and install `proofread@proofread`.
+
+Plugin skills are namespaced as `/proofread:proofread`. Claude may also expose
+the unqualified `/proofread` command when it does not conflict with another
+skill. See [Claude plugin distribution](claude-plugin.md) for exact commands,
+validation, and submission links.
+
+Official documentation:
+<https://code.claude.com/docs/en/plugins> and
+<https://claude.com/docs/cowork/guide/plugins>
 
 ## ChatGPT and Codex
 
@@ -65,9 +84,9 @@ updating this repository does not automatically update an existing Gem.
 | Surface | Core proofreading | Bundled scripts | Local file diff | Distribution |
 | --- | --- | --- | --- | --- |
 | Codex app/CLI | yes | yes | yes | filesystem skill or plugin |
-| Claude Code | yes | yes | yes | filesystem skill |
+| Claude Code | yes | yes | yes | filesystem skill or native plugin |
 | Gemini CLI | yes | yes | yes | filesystem skill |
-| Claude Desktop | yes | hosted execution only | hosted-file workflow | skill ZIP |
+| Claude Cowork | yes | isolated-runtime dependent | hosted-file workflow | native plugin or skill ZIP |
 | ChatGPT | yes after plugin publication | surface-dependent | Work/plugin environment | plugin ZIP + review |
 | Gemini Apps/Desktop | yes | no | no | Gem instructions |
 

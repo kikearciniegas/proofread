@@ -27,6 +27,8 @@ jobs:
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "20"
+      - name: Install Claude Code validator
+        run: npm install --global @anthropic-ai/claude-code@2.1.281
       - name: Run tests
         run: npm test
       - name: Check documentation
@@ -35,6 +37,8 @@ jobs:
         run: npm run validate:skill
       - name: Validate Agent Plugin manifests
         run: npm run validate:plugin
+      - name: Validate Claude plugin
+        run: npm run validate:claude && npm run validate:claude:official
       - name: Build desktop distributions
         run: npm run package:desktop
       - name: Check portable installation plan

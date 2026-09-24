@@ -58,3 +58,6 @@ npm run check:agents -- --scope user
 ```
 
 Restart an agent after installing if it caches its skill list.
+
+For native Claude plugin installation through a marketplace or Cowork upload,
+see [Claude plugin distribution](claude-plugin.md).

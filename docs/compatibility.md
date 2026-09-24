@@ -29,6 +29,11 @@ in [Desktop application support](desktop-apps.md). The filesystem installer
 targets coding-agent discovery paths; it does not install cloud-hosted Claude
 skills, publish ChatGPT plugins, or create Gemini Gems.
 
+The native Claude plugin is a separate distribution built from the same
+canonical skill. Its `.claude-plugin/plugin.json` supports Claude Code and
+Cowork without changing filesystem-skill discovery or introducing a required
+runtime dependency.
+
 Companion prose and translation skills are optional and capability-detected;
 the installer does not install them. See
 [Optional interoperability](interoperability.md) for supported names, conflict

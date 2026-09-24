@@ -29,7 +29,9 @@ test("desktop distributions contain the expected portable layouts", () => {
     const packageData = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
     const manifest = JSON.parse(readFileSync(path.join(out, "manifest.json"), "utf8"));
     assert.equal(manifest.version, packageData.version);
-    assert.deepEqual(manifest.files.map(({ target }) => target), ["claude", "chatgpt", "gemini"]);
+    assert.deepEqual(manifest.files.map(({ target }) => target), [
+      "claude-skill", "claude-plugin", "chatgpt", "gemini",
+    ]);
 
     for (const entry of manifest.files) {
       const body = readFileSync(path.join(out, entry.file));
@@ -41,6 +43,17 @@ test("desktop distributions contain the expected portable layouts", () => {
     assert.ok(claudeEntries.includes("proofread/agents/openai.yaml"));
     assert.ok(claudeEntries.includes("proofread/references/interoperability.md"));
     assert.ok(claudeEntries.every((entry) => entry.startsWith("proofread/")));
+
+    const claudePluginEntries = archiveEntries(path.join(out, "proofread-claude-plugin.zip"));
+    for (const expected of [
+      ".claude-plugin/plugin.json",
+      ".claude-plugin/marketplace.json",
+      "skills/proofread/SKILL.md",
+      "skills/proofread/scripts/proofread.mjs",
+      "skills/proofread/references/interoperability.md",
+      "LICENSE",
+      "PRIVACY.md",
+    ]) assert.ok(claudePluginEntries.includes(expected), `Claude plugin archive is missing ${expected}`);
 
     const pluginEntries = archiveEntries(path.join(out, "proofread-chatgpt-plugin.zip"));
     for (const expected of [

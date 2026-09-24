@@ -7,6 +7,8 @@ npm test
 npm run docs:check
 npm run validate:skill
 npm run validate:plugin
+npm run validate:claude
+npm run validate:claude:official
 npm run package:desktop
 npm run install:agents -- --scope project --dry-run
 ```
@@ -26,16 +28,18 @@ deleted after inspection.
 - Treat Harper output as a baseline, not authority.
 - Do not add dependencies on a particular agent's plugin marketplace.
 - Update documentation and tests with every public behavior change.
-- Keep the package and both plugin manifest versions synchronized. `SKILL.md`
-  intentionally carries no version or interface metadata; OpenAI interface
-  settings belong in `skills/proofread/agents/openai.yaml`.
+- Keep the package, portable/OpenAI manifests, Anthropic manifest, and Claude
+  marketplace versions synchronized. `SKILL.md` intentionally carries no
+  version or interface metadata; OpenAI interface settings belong in
+  `skills/proofread/agents/openai.yaml`.
 - Treat the Gemini adapter as a reduced-capability edition; never imply that it
   ran local helper commands.
 
 ## Releases
 
-1. Update the version in `package.json`, `plugin.json`, and
-   `.codex-plugin/plugin.json`.
+1. Update the version in `package.json`, `plugin.json`,
+   `.codex-plugin/plugin.json`, `.claude-plugin/plugin.json`, and
+   `.claude-plugin/marketplace.json`.
 2. Run every check listed above from a clean checkout, review legal notices, and
    verify copy-mode installation in a temporary home directory.
 3. Commit and push the versioned sources. Wait for CI and CodeQL on that exact
@@ -49,3 +53,5 @@ Do not commit `dist/`. Do not create the GitHub release manually before pushing
 the tag: the workflow owns release creation. Publishing the GitHub package does
 not submit or publish the plugin in ChatGPT; follow
 [ChatGPT plugin submission](chatgpt-plugin-submission.md) separately.
+Anthropic directory publication is also separate; follow
+[Claude plugin distribution](claude-plugin.md).

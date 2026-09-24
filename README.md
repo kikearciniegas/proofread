@@ -21,8 +21,8 @@ does not require the Claude plugins used by its original private version.
 - Approval-gated writes for existing files;
 - Shared installation for Codex, Claude Code, Gemini CLI, GitHub Copilot,
   Cursor, OpenCode, Windsurf, and Devin.
-- Desktop distributions for Claude Desktop, ChatGPT/Codex plugins, and Gemini
-  Gems.
+- Desktop distributions for Claude Skills, native Claude Code/Cowork plugins,
+  ChatGPT/Codex plugins, and Gemini Gems.
 
 It does not fact-check, translate by default, invent missing details, or claim
 that edited prose proves human authorship or bypasses AI detectors.
@@ -81,14 +81,16 @@ npm run package:desktop
 This creates:
 
 - `dist/proofread-claude-desktop.zip` for Claude's Customize → Skills upload;
+- `dist/proofread-claude-plugin.zip` for Claude Code and Cowork plugin install;
 - `dist/proofread-chatgpt-plugin.zip` for ChatGPT/Codex plugin testing and
   skills-only plugin submission;
 - `dist/proofread-gemini-instructions.md` for a Gemini Gem.
 
 See [Desktop application support](docs/desktop-apps.md) for capabilities and
-installation steps. ChatGPT public availability requires OpenAI review and
-publication in the universal Plugins Directory; building the ZIP does not
-bypass that process.
+installation steps. See [Claude plugin distribution](docs/claude-plugin.md) for
+the marketplace, direct-upload, validation, and submission paths. Public
+directory availability requires vendor review; building a ZIP does not bypass
+that process.
 
 The release also includes `manifest.json` with a SHA-256 checksum for every
 artifact. Generated files under `dist/` are disposable and are not committed.

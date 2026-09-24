@@ -20,6 +20,7 @@ body:
       options:
         - Codex
         - Claude Code
+        - Claude Cowork
         - Gemini CLI
         - GitHub Copilot
         - Cursor

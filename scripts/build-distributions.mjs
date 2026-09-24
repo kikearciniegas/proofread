@@ -40,12 +40,17 @@ async function main() {
   await mkdir(out, { recursive: true });
 
   const files = {
-    claude: path.join(out, "proofread-claude-desktop.zip"),
+    "claude-skill": path.join(out, "proofread-claude-desktop.zip"),
+    "claude-plugin": path.join(out, "proofread-claude-plugin.zip"),
     chatgpt: path.join(out, "proofread-chatgpt-plugin.zip"),
     gemini: path.join(out, "proofread-gemini-instructions.md"),
   };
 
-  zip(path.join(root, "skills"), files.claude, ["proofread"]);
+  zip(path.join(root, "skills"), files["claude-skill"], ["proofread"]);
+  zip(root, files["claude-plugin"], [
+    ".claude-plugin", "skills/proofread", "assets", "README.md",
+    "LICENSE", "NOTICE.md", "PRIVACY.md", "SECURITY.md", "THIRD_PARTY_NOTICES.md",
+  ]);
   zip(root, files.chatgpt, [
     "plugin.json", ".codex-plugin", "skills/proofread", "assets",
     "LICENSE", "NOTICE.md", "PRIVACY.md", "SECURITY.md", "THIRD_PARTY_NOTICES.md",
