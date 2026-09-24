@@ -85,6 +85,8 @@ safe ordering, translation-review requirements, and platform limitations.
 
 ## Desktop apps
 
+Use the hosted version directly: [Open Proofread as a shared Gemini Gem](https://gemini.google.com/gem/1xQ_c5-mPSw4NMm5TiTQbH-rdZ5uMNCJC?usp=sharing).
+
 Download the current packages from
 [GitHub Releases](https://github.com/kikearciniegas/proofread/releases/latest),
 or build all desktop distributions locally with:
