@@ -26,14 +26,16 @@ deleted after inspection.
 - Treat Harper output as a baseline, not authority.
 - Do not add dependencies on a particular agent's plugin marketplace.
 - Update documentation and tests with every public behavior change.
-- Keep the package, skill, and plugin manifest versions synchronized.
+- Keep the package and both plugin manifest versions synchronized. `SKILL.md`
+  intentionally carries no version or interface metadata; OpenAI interface
+  settings belong in `skills/proofread/agents/openai.yaml`.
 - Treat the Gemini adapter as a reduced-capability edition; never imply that it
   ran local helper commands.
 
 ## Releases
 
-1. Update the version in `package.json`, `skills/proofread/SKILL.md`,
-   `plugin.json`, and `.codex-plugin/plugin.json`.
+1. Update the version in `package.json`, `plugin.json`, and
+   `.codex-plugin/plugin.json`.
 2. Run every check listed above from a clean checkout, review legal notices, and
    verify copy-mode installation in a temporary home directory.
 3. Commit and push the versioned sources. Wait for CI and CodeQL on that exact

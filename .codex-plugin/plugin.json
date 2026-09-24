@@ -1,6 +1,6 @@
 {
   "name": "proofread",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Conservative proofreading and translation review that preserve meaning, voice, and protected content.",
   "author": {
     "name": "Rafael Arciniegas",
@@ -14,7 +14,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Proofread",
-    "shortDescription": "Proofread prose without changing its meaning",
+    "shortDescription": "Meaning-preserving edits",
     "longDescription": "Correct grammar, spelling, clarity, style, and translated prose while preserving the writer's facts, voice, quotations, code, citations, and exact values.",
     "developerName": "Rafael Arciniegas",
     "category": "Productivity",

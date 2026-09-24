@@ -2,12 +2,6 @@
 name: proofread
 description: Proofread and conservatively copy-edit prose, files, or translations with optional Harper linting and protected-span checks. Use for grammar, clarity, polish, or translation review.
 license: MIT. See LICENSE for the full license text.
-metadata:
-  author: Rafael Arciniegas
-  copyright: Copyright (c) 2026 Rafael Arciniegas
-  version: "0.3.0"
-  standard: agentskills.io
-  requirements: Node.js 20+ and Git; Harper CLI 2.x is optional for English linting
 ---
 
 # Proofread
@@ -19,6 +13,10 @@ a detector.
 
 All relative paths below resolve from this `SKILL.md` directory, regardless of
 the agent's current working directory.
+
+Local helper commands require Node.js 20+ and Git. Harper CLI 2.x is optional
+for English linting. OpenAI-facing interface settings live in
+`agents/openai.yaml`, not this file's frontmatter.
 
 ## Workflow
 

@@ -64,3 +64,16 @@ Apps Management write permission, choose supported countries, review the policy
 attestations, submit the package for review, and publish it after approval.
 These account-level and legal confirmations cannot be automated by this
 repository.
+
+## Expected portal normalization
+
+For this portable package, the portal retains root `plugin.json` and generates a
+normalized `.codex-plugin/plugin.json`. That conversion notice is expected; the
+root manifest remains canonical and its `extensions.com.openai` object supplies
+the OpenAI plugin interface.
+
+The bundled skill's user-facing settings are defined separately in
+`skills/proofread/agents/openai.yaml` using snake_case fields under `interface`.
+`SKILL.md` intentionally contains only portable skill frontmatter (`name`,
+`description`, and `license`); it does not use `metadata` to configure the
+OpenAI interface.

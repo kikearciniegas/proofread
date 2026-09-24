@@ -38,6 +38,7 @@ test("desktop distributions contain the expected portable layouts", () => {
 
     const claudeEntries = archiveEntries(path.join(out, "proofread-claude-desktop.zip"));
     assert.ok(claudeEntries.includes("proofread/SKILL.md"));
+    assert.ok(claudeEntries.includes("proofread/agents/openai.yaml"));
     assert.ok(claudeEntries.includes("proofread/references/interoperability.md"));
     assert.ok(claudeEntries.every((entry) => entry.startsWith("proofread/")));
 
@@ -46,6 +47,7 @@ test("desktop distributions contain the expected portable layouts", () => {
       "plugin.json",
       ".codex-plugin/plugin.json",
       "skills/proofread/SKILL.md",
+      "skills/proofread/agents/openai.yaml",
       "skills/proofread/references/interoperability.md",
       "assets/proofread-logo.svg",
     ]) assert.ok(pluginEntries.includes(expected), `plugin archive is missing ${expected}`);

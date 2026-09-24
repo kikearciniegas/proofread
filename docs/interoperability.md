@@ -1,6 +1,6 @@
 # Optional interoperability
 
-Proofread v0.3.0 is self-contained and has no required companion skill. It can
+Proofread is self-contained and has no required companion skill. It can
 use specialized skills already exposed by the current agent when the user asks
 for the corresponding review. It does not download, install, or search private
 directories for them.

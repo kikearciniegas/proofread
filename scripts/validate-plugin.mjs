@@ -23,9 +23,13 @@ const ui = portable.extensions?.["com.openai"]?.interface;
 for (const field of ["displayName", "shortDescription", "longDescription", "developerName", "category"]) {
   assert.ok(ui?.[field]?.trim(), `missing interface.${field}`);
 }
+assert.ok(ui.displayName.length <= 30, "interface.displayName exceeds the final-directory limit");
+assert.ok(ui.shortDescription.length <= 30, "interface.shortDescription exceeds the final-directory limit");
+assert.ok(ui.developerName.length <= 80, "interface.developerName exceeds the final-directory limit");
 for (const field of ["websiteURL", "privacyPolicyURL", "termsOfServiceURL"]) {
   assert.doesNotThrow(() => new URL(ui[field]));
   assert.match(ui[field], /^https:\/\//);
+  assert.ok(ui[field].length <= 1024, `interface.${field} exceeds the final-directory limit`);
 }
 assert.ok(Array.isArray(ui.defaultPrompt) && ui.defaultPrompt.length >= 1 && ui.defaultPrompt.length <= 3);
 for (const prompt of ui.defaultPrompt) assert.ok(prompt.length <= 128);
