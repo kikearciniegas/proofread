@@ -6,14 +6,14 @@
     "url": "https://github.com/kikearciniegas"
   },
   "description": "Meaning-preserving proofreading tools for Claude Code and Cowork.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "plugins": [
     {
       "name": "proofread",
       "source": "./",
       "displayName": "Proofread",
       "description": "Conservative proofreading and translation review that preserve meaning, voice, and protected content.",
-      "version": "0.4.0",
+      "version": "0.4.1",
       "author": {
         "name": "Rafael Arciniegas",
         "url": "https://github.com/kikearciniegas"
