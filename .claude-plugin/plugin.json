@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "proofread",
+  "displayName": "Proofread",
+  "version": "0.4.0",
+  "description": "Conservative proofreading and translation review that preserve meaning, voice, and protected content.",
+  "author": {
+    "name": "Rafael Arciniegas",
+    "url": "https://github.com/kikearciniegas"
+  },
+  "homepage": "https://github.com/kikearciniegas/proofread",
+  "repository": "https://github.com/kikearciniegas/proofread",
+  "license": "MIT",
+  "keywords": [
+    "proofreading",
+    "copy-editing",
+    "writing",
+    "translation-review"
+  ],
+  "skills": "./skills/"
+}
