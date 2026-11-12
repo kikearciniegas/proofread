@@ -2,13 +2,31 @@
 // Copyright (c) 2026 Rafael Arciniegas
 
 import assert from "node:assert/strict";
-import { existsSync, readFileSync, readdirSync } from "node:fs";
+import { cpSync, existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const readJson = (relative) => JSON.parse(readFileSync(path.join(root, relative), "utf8"));
+
+// Every manifest names the author package.json declares, so authorship is checked
+// without writing the name as a literal anywhere but package.json.
+const AUTHOR_FIELDS = [
+  [".claude-plugin/plugin.json", ["author", "name"]],
+  [".claude-plugin/marketplace.json", ["plugins", 0, "author", "name"]],
+  [".codex-plugin/plugin.json", ["author", "name"]],
+  [".codex-plugin/plugin.json", ["interface", "developerName"]],
+  ["plugin.json", ["author", "name"]],
+  ["plugin.json", ["extensions", "com.openai", "interface", "developerName"]],
+];
+function authorMismatches(read) {
+  const author = read("package.json").author;
+  return AUTHOR_FIELDS.filter(([file, keys]) => keys.reduce((node, key) => node?.[key], read(file)) !== author)
+    .map(([file, keys]) => `${file} ${keys.join(".")}`);
+}
 
 function markdownFiles(dir) {
   const result = [];
@@ -53,7 +71,8 @@ test("proofread CLI help names every command", () => {
 test("authorship and license metadata remain attached", () => {
   const notice = "Copyright (c) 2026 Rafael Arciniegas";
   const packageData = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
-  assert.equal(packageData.author, "Rafael Arciniegas");
+  assert.ok(packageData.author?.trim());
+  assert.deepEqual(authorMismatches(readJson), []);
   assert.equal(packageData.license, "MIT");
   assert.ok(readFileSync(path.join(root, "NOTICE.md"), "utf8").includes(notice));
   assert.ok(readFileSync(path.join(root, "skills", "proofread", "NOTICE.md"), "utf8").includes(notice));
@@ -65,5 +84,42 @@ test("the shared Gemini Gem URL remains documented", () => {
   const url = "https://gemini.google.com/gem/1xQ_c5-mPSw4NMm5TiTQbH-rdZ5uMNCJC?usp=sharing";
   for (const relative of ["README.md", "docs/desktop-apps.md", "docs/gemini-gem.md"]) {
     assert.ok(readFileSync(path.join(root, relative), "utf8").includes(url), `${relative} is missing the shared Gem URL`);
+  }
+});
+
+test("control: a manifest whose author differs from package.json is caught", () => {
+  for (const [file, keys] of AUTHOR_FIELDS) {
+    const altered = (relative) => {
+      const data = readJson(relative);
+      if (relative !== file) return data;
+      keys.slice(0, -1).reduce((node, key) => node[key], data)[keys.at(-1)] = "Someone Else";
+      return data;
+    };
+    assert.deepEqual(authorMismatches(altered), [`${file} ${keys.join(".")}`]);
+  }
+});
+
+test("control: the Claude validator refuses a differing author and a mismatched marketplace owner", () => {
+  const cases = [
+    [".claude-plugin/plugin.json", (m) => { m.author.name = "Someone Else"; }, /Claude manifest author must equal package.json author/],
+    [".claude-plugin/marketplace.json", (m) => { m.owner.name = "someone-else"; }, /marketplace owner must be the GitHub account its url names/],
+  ];
+  for (const [file, change, reason] of cases) {
+    const dir = mkdtempSync(path.join(tmpdir(), "validate-claude-"));
+    try {
+      for (const relative of ["package.json", ".claude-plugin", "scripts/validate-claude-plugin.mjs", "skills/proofread/SKILL.md"]) {
+        cpSync(path.join(root, relative), path.join(dir, relative), { recursive: true });
+      }
+      const ok = spawnSync(process.execPath, [path.join(dir, "scripts/validate-claude-plugin.mjs")], { encoding: "utf8" });
+      assert.equal(ok.status, 0, ok.stderr);
+      const data = JSON.parse(readFileSync(path.join(dir, file), "utf8"));
+      change(data);
+      writeFileSync(path.join(dir, file), JSON.stringify(data));
+      const bad = spawnSync(process.execPath, [path.join(dir, "scripts/validate-claude-plugin.mjs")], { encoding: "utf8" });
+      assert.notEqual(bad.status, 0);
+      assert.match(bad.stderr, reason);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   }
 });
