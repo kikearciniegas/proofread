@@ -1,0 +1,38 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "proofread",
+  "version": "0.2.0",
+  "description": "Conservative proofreading that preserves meaning, voice, and protected content.",
+  "author": {
+    "name": "Rafael Arciniegas",
+    "email": "kikearciniegas@users.noreply.github.com",
+    "url": "https://github.com/kikearciniegas"
+  },
+  "homepage": "https://github.com/kikearciniegas/proofread",
+  "repository": "https://github.com/kikearciniegas/proofread",
+  "license": "MIT",
+  "keywords": ["proofreading", "copy-editing", "grammar", "writing"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Proofread",
+        "shortDescription": "Proofread prose without changing its meaning",
+        "longDescription": "Correct grammar, spelling, clarity, and style while preserving the writer's facts, voice, quotations, code, citations, and exact values.",
+        "developerName": "Rafael Arciniegas",
+        "category": "Productivity",
+        "capabilities": ["Write"],
+        "websiteURL": "https://github.com/kikearciniegas/proofread",
+        "privacyPolicyURL": "https://github.com/kikearciniegas/proofread/blob/main/PRIVACY.md",
+        "termsOfServiceURL": "https://github.com/kikearciniegas/proofread/blob/main/LICENSE",
+        "defaultPrompt": [
+          "Proofread this text without changing its meaning or voice.",
+          "Correct this file and show me the diff before applying it.",
+          "Polish this draft while preserving every claim and citation."
+        ],
+        "brandColor": "#315C8C",
+        "composerIcon": "./assets/proofread-logo.svg",
+        "logo": "./assets/proofread-logo.svg"
+      }
+    }
+  }
+}
